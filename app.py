@@ -51,6 +51,15 @@ def delete(id):
     return redirect(url_for("home"))
 
 
+@app.route('/edit/<int:id>',methods=["GET","POST"])
+def edit(id):
+    note=Note.query.get(id)
+    if request.method=="POST":
+        note.title=request.form["title"]
+        note.content=request.form["content"]
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("edit_note.html",note=note)
 
 
 

@@ -23,6 +23,7 @@
                 <td>{{note.content}}</td>
                 <td>{{note.created_at}}</td>
                 <td><a href="{{url_for('delete',id=note.id)}}">Delete</a></td>
+                <td><a href="{{url_for('edit',id=note.id)}}">Update</a></td>
             </tr>
         {% endfor %}
     </table>
